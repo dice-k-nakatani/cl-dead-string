@@ -18,7 +18,7 @@ now you can write like this.
 (ppcre:scan #"\s+(\d+)\s+"# #"abcdef 1050 zzzz " xx "#)
 ```
 
-## Usage
+## usage
 
 please see above text or tests/*.lisp.
 
@@ -42,12 +42,12 @@ you can use like this.
 (list #"aaaa\bbb"ddd"#)
 ```
 
-## Installation
+## installation
 
 normal asdf project.
 use roswell or quicklisp's local-projects or so.
 
-## Trivial know how
+## trivial know how
 
 some cheat to avoid emacs's syntax table trouble.
 
@@ -92,3 +92,7 @@ some cheat to avoid emacs's syntax table trouble.
     (move-marker endpos nil)))
  
 ```
+
+## license
+
+this is available under the terms of the [MIT License](http://opensource.org/licenses/MIT).

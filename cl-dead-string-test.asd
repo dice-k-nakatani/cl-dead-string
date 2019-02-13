@@ -4,8 +4,8 @@
 
 (defsystem "cl-dead-string-test"
   :defsystem-depends-on ("prove-asdf")
-  :author ""
-  :license ""
+  :author "dice-k-nakatani"
+  :license "MIT"
   :depends-on ("cl-dead-string"
                "prove"
                :cl-syntax

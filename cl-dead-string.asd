@@ -4,7 +4,7 @@
 
 (defsystem "cl-dead-string"
   :version "0.1.0"
-  :author "daisuke-nakatani"
+  :author "dice-k-nakatani"
   :license "MIT"
   :depends-on (:series :cl-syntax)
   :components ((:module "src"
