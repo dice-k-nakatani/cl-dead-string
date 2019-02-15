@@ -1,0 +1,22 @@
+language: common-lisp
+sudo: required
+
+env:
+  global:
+    - PATH=~/.roswell/bin:$PATH
+    - ROSWELL_BRANCH=release
+    - ROSWELL_INSTALL_DIR=$HOME/.roswell
+    - COVERAGE_EXCLUDE=t
+  matrix:
+    - LISP=sbcl-bin
+    - LISP=ccl-bin
+    - LISP=ecl
+    - LISP=clisp
+
+install:
+  - curl -L https://raw.githubusercontent.com/roswell/roswell/release/scripts/install-for-ci.sh | sh
+  - ros install prove
+
+script:
+  - ros -s cl-dead-string-test
+  - run-prove cl-dead-string-test.asd
