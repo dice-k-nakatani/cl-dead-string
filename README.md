@@ -1,31 +1,41 @@
-# Cl-Dead-String
+# cl-dead-string
 
-common lisp is great language.
-but I envy perl's regex literal (`m/xxx/`) or python's triple double-quote (`"""xxx"""`).
-perl's here document is also good.
+## Synopsis
 
-in common lisp, regular expression is annoying. like this.
+`common lisp` is great language.
+But I envy perl's regex literal (`m/xxx/`) or python's triple double-quote (`"""xxx"""`).
+Perl's here document is also good.
 
-```lisp
-(ppcre:scan "\\s+(\\d+)\\s+" "abcdef 1050 zzzz \" xx ")
+In common lisp, regular expression is annoying.
+Like this:
+
+```text
+(ppcre:scan "\\s+(\\d+)\\s+"
+  "abcdef 1050 zzzz \" xx ")
 ```
 
-so I make trivial reader macro with cl-syntax definition.
+Ugly. Too much escape characters. So I make trivial reader macro with cl-syntax definition.
 
-now you can write like this.
+Now you can write like this.
 
-```lisp
-(ppcre:scan #"\s+(\d+)\s+"# #"abcdef 1050 zzzz " xx "#)
+```text
+(ppcre:scan #"\s+(\d+)\s+"#
+  #"abcdef 1050 zzzz " xx "#)
 ```
 
-## usage
+This is trivial read-macro. The point is the syntax can act like multiline comment (like `#| |#` on emacs.
 
-please see above text or tests/*.lisp.
+So between `#"` and `"#`, you can write anything including `"`, `\`.
 
-you can use like this.
+You do not have to maintain elisp's `syntax-propertize-function` or something.
 
-```lisp
+I hate read table, but this is some kind of last resort.
 
+## Usage
+
+You can use like this.
+
+```text
 ;; it is not in quicklisp repository. so you have to pushnew the path.
 (pushnew
  #p"~/dev/cl-dead-string/"
@@ -42,14 +52,16 @@ you can use like this.
 (list #"aaaa\bbb"ddd"#)
 ```
 
-## installation
+And `tests/*.lisp` would indicate furthermore.
 
-normal asdf project.
-use roswell or quicklisp's local-projects or so.
+## Installation
 
-## trivial know how
+This is an usual asdf project.
+You can install with roswell or quicklisp's local-projects or so.
 
-some cheat to avoid emacs's syntax table trouble.
+## Trivial know how
+
+Some cheat to avoid emacs's syntax table trouble.
 
 ```lisp
 
@@ -93,6 +105,6 @@ some cheat to avoid emacs's syntax table trouble.
  
 ```
 
-## license
+## License
 
-this is available under the terms of the [MIT License](http://opensource.org/licenses/MIT).
+This is available under the terms of the [MIT License](http://opensource.org/licenses/MIT).

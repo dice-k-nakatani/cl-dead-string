@@ -10,7 +10,7 @@ env:
   matrix:
     - LISP=sbcl-bin
     - LISP=ccl-bin
-    - LISP=ecl
+    # - LISP=ecl # TODO: not work
     - LISP=clisp
 
 install:

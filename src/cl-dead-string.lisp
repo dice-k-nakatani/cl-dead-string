@@ -7,8 +7,7 @@
   (declare (ignore sub-char))
   (collect
       'string
-    (until-if
-     #'null
+    (until-if #'null
      (mapping (((x next) (chunk 2 1 (scan-stream stream #'read-char))))
        (if (and (char= #\" x)
                 (char= #\# next))
